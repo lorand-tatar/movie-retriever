@@ -1,6 +1,7 @@
 package movie.retriever.service;
 
 import static java.lang.String.join;
+import static java.util.Comparator.naturalOrder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +21,10 @@ public class MovieRetrieverService {
         List<String> titles = new ArrayList<>();
         for (Movie movie : movieRepository.findAll()) {
             if (movie.getReleasedYear() < olderThan) {
-                titles.add(movie.getTitle());
+                titles.add(movie.getTitle().toUpperCase());
             }
         }
+        titles.sort(naturalOrder());
         return join(", ", titles);
     }
 }
