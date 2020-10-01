@@ -6,15 +6,17 @@ import static java.util.Comparator.naturalOrder;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import movie.retriever.service.domain.Movie;
 import movie.retriever.service.repository.MovieRepository;
-import movie.retriever.service.repository.VanillaMovieRepository;
 
+@Service
 public class MovieRetrieverService {
     private MovieRepository movieRepository;
 
-    public MovieRetrieverService() {
-        this.movieRepository = new VanillaMovieRepository();
+    public MovieRetrieverService(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
     }
 
     public String retrieveClassics(int olderThan) {

@@ -2,8 +2,11 @@ package movie.retriever.service.repository;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import movie.retriever.service.domain.Movie;
 
+@Repository
 public class VanillaMovieRepository implements MovieRepository {
 
     public List<Movie> findAll() {
