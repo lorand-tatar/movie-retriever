@@ -14,4 +14,5 @@ public class VanillaMovieRepository implements MovieRepository {
             new Movie("Good Will Hunting", 1997),
             new Movie("A Beautiful Mind", 2001));
     }
+
 }
